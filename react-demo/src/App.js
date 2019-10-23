@@ -5,7 +5,7 @@
         super()
         this.state = { 
             inputValue:"",
-            list:["基础","精油"]
+            list:["基础","精油","third"]
         }
       }
       render() { 
