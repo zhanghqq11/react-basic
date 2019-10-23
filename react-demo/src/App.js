@@ -1,4 +1,6 @@
   import React, { Component } from 'react';
+  import './style.css';
+  import Appitem from './AppItem';
   
   class xjj extends Component {
       constructor(props){
@@ -11,12 +13,17 @@
       render() { 
           return (
               <div>
-                  <input value={ this.state.inputValue} onChange={this.inputChange.bind(this)} />
+                  <label htmlFor="test1">增加</label>
+                  <input id="test1" className="inputbox-add-service" value={ this.state.inputValue} onChange={this.inputChange.bind(this)} />
                   <button onClick={this.addList.bind(this)}>增加选项</button>
                   <ul>
                       {
                           this.state.list.map((item,index)=>{
-                              return <li key={item + index}>{ item}</li>
+                              return (
+                                  <div>
+                                      <Appitem content={ item}></Appitem>
+                                  </div>
+                              )
                           })
                       }
                   </ul>
@@ -26,7 +33,7 @@
 
       //单向数据流绑定.
       inputChange(e){
-          console.log(e.target.value)
+        //   console.log(e.target.value)
           this.setState({
               inputValue: e.target.value
           })
@@ -37,6 +44,15 @@
           this.setState({
               //扩展运算符...
               list:[...this.state.list,this.state.inputValue]
+          })
+      }
+
+      deleteItem(index){
+          let listVar = this.state.list
+          console.log(index)
+          listVar.splice(index,1)
+          this.setState({
+              list : listVar
           })
       }
   }
