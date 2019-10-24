@@ -20,9 +20,12 @@
                       {
                           this.state.list.map((item,index)=>{
                               return (
-                                  <div>
-                                      <Appitem content={ item}></Appitem>
-                                  </div>
+                                  <Appitem 
+                                  key={item + index}
+                                  index = {index} 
+                                  content={ item}
+                                  deleteItem = {this.deleteItem.bind(this)}
+                                  />
                               )
                           })
                       }
@@ -31,7 +34,7 @@
             );
       }
 
-      //单向数据流绑定.
+      // 数据绑定.
       inputChange(e){
         //   console.log(e.target.value)
           this.setState({
@@ -39,7 +42,7 @@
           })
       }
 
-      //改list数组
+      // 改list数组
       addList(){
           this.setState({
               //扩展运算符...
