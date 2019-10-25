@@ -1,6 +1,7 @@
   import React, { Component } from 'react';
   import './style.css';
   import Appitem from './AppItem';
+  import PropTypes from 'prop-types';
   
   class xjj extends Component {
       constructor(props){
@@ -60,4 +61,9 @@
       }
   }
    
+  Appitem.PropTypes={
+    content: PropTypes.string,
+    deleteItem: PropTypes.func,
+    index: PropTypes.number
+  }
   export default xjj;
