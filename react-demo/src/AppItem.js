@@ -16,5 +16,11 @@ class AppItem extends Component {
        this.props.deleteItem(this.props.index);
     }
 }
- 
+
+AppItem.PropTypes={
+    content: PropTypes.string,
+    deleteItem: PropTypes.func,
+    index: PropTypes.number
+  }
+
 export default AppItem;

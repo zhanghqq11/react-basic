@@ -15,9 +15,14 @@
           return (
               <div>
                   <label htmlFor="test1">增加</label>
-                  <input id="test1" className="inputbox-add-service" value={ this.state.inputValue} onChange={this.inputChange.bind(this)} />
+                  <input 
+                    id = "test1" 
+                    className = "inputbox-add-service" 
+                    value = { this.state.inputValue} 
+                    onChange = {this.inputChange.bind(this)} 
+                    ref = {(inputBoxValue)=>{this.input = inputBoxValue}}/>
                   <button onClick={this.addList.bind(this)}>增加选项</button>
-                  <ul>
+                  <ul ref={(ul)=>{this.ul=ul}}>
                       {
                           this.state.list.map((item,index)=>{
                               return (
@@ -39,7 +44,7 @@
       inputChange(e){
         //   console.log(e.target.value)
           this.setState({
-              inputValue: e.target.value
+              inputValue: this.input.value
           })
       }
 
@@ -49,6 +54,7 @@
               //扩展运算符...
               list:[...this.state.list,this.state.inputValue]
           })
+          console.log(this.ul.querySelectorAll('div').length)
       }
 
       deleteItem(index){
@@ -61,9 +67,5 @@
       }
   }
    
-  Appitem.PropTypes={
-    content: PropTypes.string,
-    deleteItem: PropTypes.func,
-    index: PropTypes.number
-  }
+
   export default xjj;
