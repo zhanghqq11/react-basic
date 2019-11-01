@@ -1,12 +1,13 @@
 import React from 'react'
 import Head from 'next/head'
 import {
-  Layout, Menu, Breadcrumb, Icon,
+  Layout,
+  // Menu, Breadcrumb, Icon,
 } from 'antd';
 import Headerinner from '../components/header'
 
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
+// const { SubMenu } = Menu;
+const { Header } = Layout;
 
 const Home = () => (
   <Layout>
@@ -17,7 +18,6 @@ const Home = () => (
         <link rel="icon" href="/favicon.ico" />
       </Head>
     </Header>
-
     <div className="hero">
       <h1 className="title">Welcome</h1>
     </div>
