@@ -1,5 +1,6 @@
 /* eslint-disable */
 const withCss = require('@zeit/next-css')
+const path = require('path')
 
 module.exports = withCss({
   webpack: (config, { isServer }) => {
@@ -23,6 +24,15 @@ module.exports = withCss({
         use: 'null-loader',
       })
     }
+    const eslintRule = {
+     enforce: 'pre',
+     test: /.(js|jsx)$/,
+     loader: 'eslint-loader',
+     exclude: [
+       path.resolve(__dirname, '/node_modules'),
+     ],
+   }
+   config.module.rules.push(eslintRule)
     return config
   },
 })

@@ -1,48 +1,40 @@
 import React from 'react'
 import Head from 'next/head'
-import Nav from '../components/nav'
-import Header from './header'
+import {
+  Layout, Menu, Breadcrumb, Icon,
+} from 'antd';
+import Headerinner from '../components/header'
+
+const { SubMenu } = Menu;
+const { Header, Content, Sider } = Layout;
 
 const Home = () => (
-  <div>
-    <Header/>
-    <Head>
-      <title>Home</title>
-      <link rel='icon' href='/favicon.ico' />
-    </Head>
+  <Layout>
+    <Header className="header">
+      <Headerinner />
+      <Head>
+        <title>Home</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+    </Header>
 
-    <Nav />
-
-    <div className='hero'>
-      <h1 className='title'>Welcome to Next.js!</h1>
-      <p className='description'>
-        To get started, edit <code>pages/index.js</code> and save to reload.
-      </p>
-
-      <div className='row'>
-        <a href='https://nextjs.org/docs' className='card'>
-          <h3>Documentation &rarr;</h3>
-          <p>Learn more about Next.js in the documentation.</p>
-        </a>
-        <a href='https://nextjs.org/learn' className='card'>
-          <h3>Next.js Learn &rarr;</h3>
-          <p>Learn about Next.js by following an interactive tutorial!</p>
-        </a>
-        <a
-          href='https://github.com/zeit/next.js/tree/master/examples'
-          className='card'
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Find other example boilerplates on the Next.js GitHub.</p>
-        </a>
-      </div>
+    <div className="hero">
+      <h1 className="title">Welcome</h1>
     </div>
-
-    <style jsx>{`
-      .hero {
-        width: 100%;
-        color: #333;
-      }
+    <div className="hero">
+      <h1 className="title">Welcome</h1>
+    </div>
+    <div className="hero">
+      <h1 className="title">Welcome</h1>
+    </div>
+    <div className="hero">
+      <h1 className="title">Welcome</h1>
+    </div>
+    <div className="hero">
+      <h1 className="title">Welcome</h1>
+    </div>
+    <style jsx>
+      {`
       .title {
         margin: 0;
         width: 100%;
@@ -83,8 +75,10 @@ const Home = () => (
         font-size: 13px;
         color: #333;
       }
-    `}</style>
-  </div>
+    `}
+
+    </style>
+  </Layout>
 )
 
 export default Home
