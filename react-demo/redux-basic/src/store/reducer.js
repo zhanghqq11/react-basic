@@ -12,13 +12,13 @@ export default (state = defaultState,action)=>{  //就是一个方法函数
         return newState
     }
     if(action.type === ADD_INPUTVAL_TO_LIST){
-        console.log(action)
+        console.log("add")
         let addedState = JSON.parse(JSON.stringify(state))
         addedState.list.push(action.value)
         return addedState
     }
     if(action.type === DELETE_ITEM_IN_LIST_INDEX){
-        console.log(action)
+        console.log("delete")
         let newState = JSON.parse(JSON.stringify(state))
         newState.list.splice(action.index,1)
         return newState
