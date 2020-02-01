@@ -1,4 +1,4 @@
-import { ADD_INPUTVAL_TO_LIST, CHANGE_INPUT_VALUE, DELETE_ITEM_IN_LIST_INDEX} from '../store/actionType'
+import { ADD_INPUTVAL_TO_LIST, CHANGE_INPUT_VALUE, DELETE_ITEM_IN_LIST_INDEX, GET_LIST} from '../store/actionType'
 
 const defaultState = {
     inputVal :'this is input value',
@@ -21,6 +21,11 @@ export default (state = defaultState,action)=>{  //就是一个方法函数
         console.log("delete")
         let newState = JSON.parse(JSON.stringify(state))
         newState.list.splice(action.index,1)
+        return newState
+    }
+    if(action.type === GET_LIST){
+        let newState = JSON.parse(JSON.stringify(state))
+        newState.list = action.data.list
         return newState
     }
     return state

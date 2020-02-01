@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Input, Button, List } from 'antd';
 import 'antd/dist/antd.css';
+import TOdolistUI from './TodoListUI';
 import store from './store'
 // import { ADD_INPUTVAL_TO_LIST, CHANGE_INPUT_VALUE, DELETE_ITEM_IN_LIST_INDEX} from './store/actionType'
-import { changeInputAction, addItemAction, deleteItemAction} from './store/actionCreators'
+import { getTodoListMiddle, changeInputAction, addItemAction, deleteItemAction} from './store/actionCreators'
 
 // const data = ['1hello','second hello','third hello']
 class todolist extends Component {
@@ -16,29 +16,25 @@ class todolist extends Component {
         this.clickAdd = this.clickAdd.bind(this)
         this.deleteItem = this.deleteItem.bind(this)
         this.storeChange = this.storeChange.bind(this)
+        this.deleteItem = this.deleteItem.bind(this)
         store.subscribe(this.storeChange)
+        // store.Button(this.changeValue)
     }
     render() { 
         return (
-        <div>
-            <div>
-                <Input 
-                placeholder= {store.getState().inputVal} 
-                style = {{width:'200px'}}
-                onChange = {this.changeValue}
-                />
-                <Button onClick={ this.clickAdd }>add</Button>
-            </div>  
-            <div style={{margin:'10px',width:'300px'}}>
-            <List
-                bordered
-                dataSource={store.getState().list}
-                renderItem={(item,index)=>(
-                <List.Item onClick={this.deleteItem.bind(this, index)}>{item}</List.Item>)}
-            />    
-            </div>
-        </div>
+            <TOdolistUI
+            inputVal={this.state.inputVal}
+            changeValue={this.changeValue}
+            clickAdd={this.clickAdd}
+            list={this.state.list}
+            deleteItem = {this.deleteItem}
+            />
         );
+    }
+
+    componentDidMount(){
+        const action = getTodoListMiddle()
+        store.dispatch(action)
     }
 
     changeValue(e){
@@ -49,6 +45,7 @@ class todolist extends Component {
     clickAdd(){
         const action = addItemAction(this.state.inputVal)
         store.dispatch(action)
+        console.log(this.state.inputVal)
         // console.log(store.getState())
     }
 

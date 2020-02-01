@@ -6,11 +6,14 @@ app.get('/api/user/info',(req,res)=>{
     res.header('Access-Control-Allow-Methods','GET,POST,PUT')
     res.header('Content-Type','application/json;charset=utf-8')
     res.json({
-        code:0,
-        data:[
-            {name:"web",best:'best_etc'}
-        ]
-    })
+        "data": {
+          "list": [
+            'get up at 4AM',
+            'swim one hour at noon',
+            'study 2 hours at 8 to 10'
+          ]
+        }
+      })
 })
 
 app.listen(9001,()=>{
