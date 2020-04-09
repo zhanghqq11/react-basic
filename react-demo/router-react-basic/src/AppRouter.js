@@ -15,10 +15,10 @@ function AppRouter(){
         <Router>
             <ul>
                 <li> <Link to="/">main</Link> </li>
-                <li> <Link to="/list/">List</Link> </li>
+                <li> <Link to="/list/123">List</Link> </li>
             </ul>
             <Route path="/" exact component={Index} />
-            <Route path="/list/" component={List} />
+            <Route path="/list/:id" component={List} />
         </Router>
     )
 }

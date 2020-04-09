@@ -5,7 +5,12 @@ class List extends Component {
         this.state = {  }
     }
     render() { 
-        return ( <h2>this is List page</h2> );
+        return ( <h2>page {this.state.id}</h2> );
+    }
+    componentDidMount(){
+        console.log(this.props.match)
+        let tempId = this.props.match.params.id
+        this.setState({id:tempId})
     }
 }
  
