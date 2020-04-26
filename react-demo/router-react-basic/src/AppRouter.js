@@ -2,6 +2,8 @@ import React from 'react';
 import {BrowserRouter as Router, Route ,Link} from 'react-router-dom'
 import Index from './Pages/index'
 import List from './Pages/list'
+import Home from './Pages/Home'
+
 // function Index(){
 //     return <h2>Main page</h2>
 // }
@@ -19,6 +21,7 @@ function AppRouter(){
             </ul>
             <Route path="/" exact component={Index} />
             <Route path="/list/:id" component={List} />
+            <Route path="/home/" component={Home} />
         </Router>
     )
 }

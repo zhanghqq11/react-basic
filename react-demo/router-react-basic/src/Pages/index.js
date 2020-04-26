@@ -10,6 +10,7 @@ class Index extends Component {
                 {sid:3,title:'this is blog no.3'}
             ]
           }
+        this.props.history.push("/home/")
     }
     render() { 
         return (
