@@ -3,8 +3,11 @@ import {BrowserRouter as Router, Route, Link}from 'react-router-dom'
 
 function Index(){
     useEffect(() => {
-        console.log(`hi you r in Index page`)
-    })
+        console.log(`userEffect------hi you r in Index page`)
+        return ()=>{
+            console.log('hi u r out Index')
+        }
+    },[])
     return (
         <div>
         <h3>this is an Index page</h3>
@@ -13,6 +16,12 @@ function Index(){
 }
 
 function List(){
+    useEffect(() => {
+        console.log(`userEffect------hi you r in List page`)
+        return ()=>{
+            console.log('hi u r out List')
+        }
+    },[])
     return (
         <div>
         <h3>this is an List page</h3>
@@ -25,8 +34,11 @@ function Example(){
     const [ sex, setSex] = useState('male')
     const [ work, setWork] = useState('front-end developer')
     useEffect(() => {
-        console.log(`useeffect call ${age} time`)   
-    })
+        console.log(`useeffect call ${age} time`)
+        return ()=>{
+            console.log("----------------")
+        }
+    },[age])
 
     return(
         <div>
