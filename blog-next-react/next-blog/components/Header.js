@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/components/header.css';
 
 import {Row, Col, Menu} from 'antd';
-import {} from '@ant-design/icons'
+import {BookOutlined, ClusterOutlined, MessageOutlined} from '@ant-design/icons'
 
 const Header = () => (
     <div className="header">
@@ -15,12 +15,15 @@ const Header = () => (
           <Col className="memu-div" xs={0} sm={0} md={14} lg={8} xl={6}>
               <Menu  mode="horizontal">
                   <Menu.Item key="home">
+                  <BookOutlined />
                       博客
                   </Menu.Item>
                   <Menu.Item key="video">
+                  <ClusterOutlined />
                       书籍梗概
                   </Menu.Item>
                   <Menu.Item key="life">
+                  <MessageOutlined />
                       其他
                   </Menu.Item>
               </Menu>
