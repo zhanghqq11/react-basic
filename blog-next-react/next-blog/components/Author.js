@@ -1,5 +1,6 @@
 import {Avatar,Divider} from 'antd'
 import '../styles/components/author.css'
+import {GithubOutlined, QqOutlined, WechatOutlined} from '@ant-design/icons'
 
 const Author =()=>{
 
@@ -9,9 +10,9 @@ const Author =()=>{
             <div className="author-introduction">
                 this is a lazy boy.
                 <Divider>Social account</Divider>
-                <Avatar size={28} icon="github" className="account"  />
-                <Avatar size={28} icon="qq"  className="account" />
-                <Avatar size={28} icon="wechat"  className="account"  />
+                <Avatar size={28} icon={<GithubOutlined />} className="account"  />
+                <Avatar size={28} icon={<QqOutlined />}  className="account" />
+                <Avatar size={28} icon={<WechatOutlined />}  className="account"  />
 
             </div>
         </div>

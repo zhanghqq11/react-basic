@@ -3,6 +3,8 @@ import Head from 'next/head'
 import {Button, Row, Col, List, Icon} from 'antd'
 import Header from '../components/Header'
 import Author from '../components/Author'
+import Avert from '../components/Advert'
+import Footer from '../components/Footer'
 import Item from 'antd/lib/list/Item'
 import '../styles/pages/index.css'
 
@@ -44,8 +46,10 @@ const Home = () => {
 
         <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
           <Author></Author>
+          <Avert></Avert>
         </Col>
       </Row>
+      <Footer></Footer>
     </>
   )
 }
