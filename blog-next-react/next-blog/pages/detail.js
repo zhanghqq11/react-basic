@@ -10,6 +10,7 @@ import Advert from '../components/Advert'
 import Footer from '../components/Footer'
 import '../styles/pages/detail.css'
 import 'markdown-navbar/dist/navbar.css'
+import axios from 'axios'
 
 
 let testSource='# P01:课程介绍和环境搭建\n' +
@@ -106,5 +107,19 @@ const Detailed = () => (
 
  </>
 )
+
+Detailed.getInitialProps = async(context)=>{
+  console.log(context.query.id)
+  let id = context.query.id
+  const promise = new Promise((resolve)=>{
+    axios('http://127.0.0.1:7001/default/getArticleById/'+id).then(
+      (res)=>{
+        console.log(title)
+        resolve(res.data.data[0])
+      }
+    )
+  })
+  return await promise
+}
 
 export default Detailed
