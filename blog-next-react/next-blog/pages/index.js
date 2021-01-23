@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 import {Button, Row, Col, List, Icon} from 'antd'
 import Header from '../components/Header'
 import Author from '../components/Author'
@@ -28,7 +29,7 @@ const Home = (list) => {
             renderItem={item => (
               <List.Item>
                 <div className="list-title">
-                  <Link href={{pathname:'/detailed',query:{id:item.id}}}>
+                  <Link href={{pathname:'/detail',query:{id:item.id}}}>
                     <a>{item.title}</a>
                   </Link>
                 </div>

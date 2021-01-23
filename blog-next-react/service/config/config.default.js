@@ -23,6 +23,8 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
 
+
+
   exports.mysql = {
     // database configuration
     client: {
@@ -41,6 +43,19 @@ module.exports = appInfo => {
     app: true,
     // load into agent, default is close
     agent: false,
+  };
+
+  config.security ={
+    csrf:{
+      enable:false
+    },
+    domainWhiteList: ['*']
+  };
+
+  config.cors = {
+    origin: 'http://localhost:3000',
+    credentials: true,
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
   };
 
   return {
