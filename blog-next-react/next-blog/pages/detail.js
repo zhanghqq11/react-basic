@@ -4,6 +4,7 @@ import {Row, Col, Icon, Affix, Breadcrumb} from 'antd'
 import marked from 'marked'
 import hljs from "highlight.js";
 import MarkNav from 'markdown-navbar'
+import Tocify from '../components/AnchorEnchance.tsx'
 
 import Header from '../components/Header'
 import Author from '../components/Author'
@@ -13,10 +14,17 @@ import '../styles/pages/detail.css'
 import 'markdown-navbar/dist/navbar.css'
 import 'highlight.js/styles/monokai-sublime.css';
 import axios from 'axios'
+import apiPath from '../config/apiUrl'
+
 
 
 const Detailed = ( props ) => {
   const renderer = new marked.Renderer();
+  const tocify = new Tocify()
+  renderer.heading = function(text, level, raw) {
+      const anchor = tocify.add(text, level);
+      return `<a id="${anchor}" href="#${anchor}" class="anchor-fix"><h${level}>${text}</h${level}></a>\n`;
+  };
 
   marked.setOptions({
     renderer: renderer, 
@@ -32,7 +40,8 @@ const Detailed = ( props ) => {
     }
   });
 
-  let html = marked(props.article_content) 
+  const html = marked(props.article_content) 
+  const title = marked(props.title)
 
   return (
     <>
@@ -52,8 +61,7 @@ const Detailed = ( props ) => {
             </div>
 
             <div>
-              <div className="detailed-title">
-              this is a dtail title
+              <div className="detailed-title" dangerouslySetInnerHTML={{__html:title}}>
               </div>
 
               <div className="list-icon center">
@@ -74,11 +82,7 @@ const Detailed = ( props ) => {
           <Affix offsetTop={5}>
             <div className="detailed-nav comm-box">
               <div className="nav-title">文章目录</div>
-              <MarkNav
-                className="article-menu"
-                source={html}
-                ordered={false}
-              />
+              {tocify && tocify.render()}
             </div>
           </Affix>
         </Col>
@@ -93,7 +97,7 @@ Detailed.getInitialProps = async(context)=>{
   console.log(context.query.id)
   let id = context.query.id
   const promise = new Promise((resolve)=>{
-    axios('http://127.0.0.1:7001/default/getArticleById/'+id).then(
+    axios(apiPath.getArticleById+id).then(
       (res)=>{
         console.log(id)
         resolve(res.data.data[0])
