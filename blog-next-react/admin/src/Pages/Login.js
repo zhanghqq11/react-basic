@@ -12,6 +12,7 @@ function Login(){
         setIsLoading(true)
         setTimeout(()=>{
             setIsLoading(false)
+            console.log(userName,password)
         },1000)
     }
     return (
