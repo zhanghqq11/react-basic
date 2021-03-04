@@ -12,16 +12,6 @@ const { SubMenu } = Menu;
 function AdminIndex(){
 
   const [collapsed,setCollapsed] = useState(false)
-  const [articleId,setArticleId] = useState(0)  // 文章的ID，如果是0说明是新增加，如果不是0，说明是修改
-  const [articleTitle,setArticleTitle] = useState('')   //文章标题
-  const [articleContent , setArticleContent] = useState('')  //markdown的编辑内容
-  const [markdownContent, setMarkdownContent] = useState('预览内容') //html内容
-  const [introducemd,setIntroducemd] = useState()            //简介的markdown内容
-  const [introducehtml,setIntroducehtml] = useState('等待编辑') //简介的html内容
-  const [showDate,setShowDate] = useState()   //发布日期
-  const [updateDate,setUpdateDate] = useState() //修改日志的日期
-  const [typeInfo ,setTypeInfo] = useState([]) // 文章类别信息
-  const [selectedType,setSelectType] = useState(1) //选择的文章类别
   const onCollapse = collapsed => {
     setCollapsed(collapsed)
   };
